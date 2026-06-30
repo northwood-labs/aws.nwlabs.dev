@@ -431,9 +431,19 @@ def main() -> int:
         },
     )
 
+    # Render index.html.j2 root index page
+    render_index_template(
+        env,
+        "index.html.j2",
+        project_root / "docs" / "index.html",
+        {
+            "provider_version": provider_version,
+        },
+    )
+
     # Print summary
     print(
-        f"Generated {resource_count} resource redirects, {data_source_count} data source redirects, and 2 index pages."
+        f"Generated {resource_count} resource redirects, {data_source_count} data source redirects, and 3 index pages."
     )
 
     return 0

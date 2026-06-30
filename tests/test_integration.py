@@ -15,6 +15,7 @@ from generate.cli import main
 TEMPLATE_SOURCE = Path(__file__).resolve().parent.parent / "src" / "generate" / "templates" / "redirect.html.j2"
 R_TEMPLATE_SOURCE = Path(__file__).resolve().parent.parent / "src" / "generate" / "templates" / "r.html.j2"
 D_TEMPLATE_SOURCE = Path(__file__).resolve().parent.parent / "src" / "generate" / "templates" / "d.html.j2"
+INDEX_TEMPLATE_SOURCE = Path(__file__).resolve().parent.parent / "src" / "generate" / "templates" / "index.html.j2"
 
 
 def setup_project(tmp_path: Path) -> None:
@@ -28,6 +29,7 @@ def setup_project(tmp_path: Path) -> None:
     shutil.copy(TEMPLATE_SOURCE, template_dir / "redirect.html.j2")
     shutil.copy(R_TEMPLATE_SOURCE, template_dir / "r.html.j2")
     shutil.copy(D_TEMPLATE_SOURCE, template_dir / "d.html.j2")
+    shutil.copy(INDEX_TEMPLATE_SOURCE, template_dir / "index.html.j2")
 
     # Create docs directory with preserved files
     docs_dir = tmp_path / "docs"
@@ -219,3 +221,17 @@ def test_index_templates_rendered_with_correct_content(
     assert "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance" in instance_content, (
         "Redirect should point to the correct registry URL"
     )
+
+    # ------------------------------------------------------------------
+    # VERIFY docs/index.html (root index page)
+
+    root_index = docs_dir / "index.html"
+    assert root_index.exists(), "docs/index.html should be created"
+
+    root_content = root_index.read_text()
+
+    # Contains provider version string
+    assert "6.52.0" in root_content, "docs/index.html should contain the provider version"
+
+    # Contains expected static content from the template
+    assert "hashicorp/aws" in root_content, "docs/index.html should reference hashicorp/aws"
