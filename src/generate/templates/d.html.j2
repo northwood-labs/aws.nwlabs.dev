@@ -3,6 +3,7 @@
   <head prefix="og:http://ogp.me/ns# fb:http://ogp.me/ns/fb# article:http://ogp.me/ns/article# profile:http://ogp.me/ns/profile# website:http://ogp.me/ns/website#">
     <meta charset="utf-8">
     <title>Data sources</title>
+    <link href="//raw.githubusercontent.com/skyzyx/carbon-css/refs/heads/master/dist/carbon.css" rel="stylesheet">
 
     <link rel="dns-prefetch" href="https://registry.terraform.io">
     <meta name="description" content="A list of data sources for the Terraform Provider for AWS.">
@@ -23,6 +24,7 @@
     <meta property="og:description" content="A simple redirect to {{ original_name }}.">
     <meta property="og:image" content="https://bits.nwlabs.dev/oembed/aws.nwlabs.dev@2x.png">
     <meta property="og:url" content="https://aws.nwlabs.dev/d/">
+    <meta property="og:site_name" content="Northwood Labs">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
   </head>
@@ -30,7 +32,7 @@
     <p>List of supported data sources for <a href="https://registry.terraform.io/providers/hashicorp/aws/latest">hashicorp/aws</a> provider v{{ provider_version }}:</p>
     <ul>
     {% for datasource in datasources %}
-      <li><a href="{{ datasource.href }}">{{ datasource.full_name }}</a></li>
+      <li><a href="{{ datasource.href }}">aws.nwlabs.dev/d/{{ datasource.name }}</a></li>
     {% endfor %}
     </ul>
   </body>

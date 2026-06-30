@@ -176,6 +176,7 @@ def build_entry_list(
         entry: dict[str, str] = {
             "href": build_target_url(stripped, category),
             "full_name": original,
+            "name": stripped,
         }
         entries.append(entry)
 

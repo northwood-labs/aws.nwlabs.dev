@@ -3,6 +3,7 @@
   <head prefix="og:http://ogp.me/ns# fb:http://ogp.me/ns/fb# article:http://ogp.me/ns/article# profile:http://ogp.me/ns/profile# website:http://ogp.me/ns/website#">
     <meta charset="utf-8">
     <title>Resources</title>
+    <link href="//raw.githubusercontent.com/skyzyx/carbon-css/refs/heads/master/dist/carbon.css" rel="stylesheet">
 
     <link rel="dns-prefetch" href="https://registry.terraform.io">
     <meta name="description" content="A list of resources for the Terraform Provider for AWS.">
@@ -23,6 +24,7 @@
     <meta property="og:description" content="A simple redirect to {{ original_name }}.">
     <meta property="og:image" content="https://bits.nwlabs.dev/oembed/aws.nwlabs.dev@2x.png">
     <meta property="og:url" content="https://aws.nwlabs.dev/r/">
+    <meta property="og:site_name" content="Northwood Labs">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
   </head>
@@ -30,7 +32,7 @@
     <p>List of supported resources for <a href="https://registry.terraform.io/providers/hashicorp/aws/latest">hashicorp/aws</a> provider v{{ provider_version }}:</p>
     <ul>
     {% for resource in resources %}
-      <li><a href="{{ resource.href }}">{{ resource.full_name }}</a></li>
+      <li><a href="{{ resource.href }}">aws.nwlabs.dev/r/{{ resource.name }}</a></li>
     {% endfor %}
     </ul>
   </body>
