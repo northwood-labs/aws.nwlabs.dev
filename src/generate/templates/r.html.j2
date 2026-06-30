@@ -6,10 +6,10 @@
   </head>
   <body>
     <p>List of supported resources for <a href="https://registry.terraform.io/providers/hashicorp/aws/latest">hashicorp/aws</a> provider v{{ provider_version }}:</p>
-    <ol>
+    <ul>
     {% for resource in resources %}
       <li><a href="{{ resource.href }}">{{ resource.full_name }}</a></li>
     {% endfor %}
-    </ol>
+    </ul>
   </body>
 </html>

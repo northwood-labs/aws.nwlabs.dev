@@ -6,10 +6,10 @@
   </head>
   <body>
     <p>List of supported data sources for <a href="https://registry.terraform.io/providers/hashicorp/aws/latest">hashicorp/aws</a> provider v{{ provider_version }}:</p>
-    <ol>
+    <ul>
     {% for datasource in datasources %}
       <li><a href="{{ datasource.href }}">{{ datasource.full_name }}</a></li>
     {% endfor %}
-    </ol>
+    </ul>
   </body>
 </html>
