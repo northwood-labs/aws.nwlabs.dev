@@ -31,11 +31,14 @@
     <meta property="og:locale" content="en_US">
   </head>
   <body>
-    <p>List of supported resources for <a href="https://registry.terraform.io/providers/hashicorp/aws/latest">hashicorp/aws</a> provider v{{ provider_version }}:</p>
-    <ul>
-    {% for resource in resources %}
-      <li><a href="{{ resource.href }}">aws.nwlabs.dev/r/{{ resource.name }}</a></li>
-    {% endfor %}
-    </ul>
+    <div style="padding: 1rem 5rem;">
+      <h1>hashicorp/aws resources</h1>
+      <p>List of supported resources for <a href="https://registry.terraform.io/providers/hashicorp/aws/latest">hashicorp/aws</a> provider v{{ provider_version }}:</p>
+      <ul>
+      {% for resource in resources %}
+        <li><a href="{{ resource.href }}">aws.nwlabs.dev/r/{{ resource.name }}</a></li>
+      {% endfor %}
+      </ul>
+    </div>
   </body>
 </html>

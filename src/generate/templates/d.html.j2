@@ -31,11 +31,14 @@
     <meta property="og:locale" content="en_US">
   </head>
   <body>
-    <p>List of supported data sources for <a href="https://registry.terraform.io/providers/hashicorp/aws/latest">hashicorp/aws</a> provider v{{ provider_version }}:</p>
-    <ul>
-    {% for datasource in datasources %}
-      <li><a href="{{ datasource.href }}">aws.nwlabs.dev/d/{{ datasource.name }}</a></li>
-    {% endfor %}
-    </ul>
+    <div style="padding: 1rem 5rem;">
+      <h1>hashicorp/aws data sources</h1>
+      <p>List of supported data sources for <a href="https://registry.terraform.io/providers/hashicorp/aws/latest">hashicorp/aws</a> provider v{{ provider_version }}:</p>
+      <ul>
+      {% for datasource in datasources %}
+        <li><a href="{{ datasource.href }}">aws.nwlabs.dev/d/{{ datasource.name }}</a></li>
+      {% endfor %}
+      </ul>
+    </div>
   </body>
 </html>

@@ -177,6 +177,7 @@ def build_entry_list(
             "href": build_target_url(stripped, category),
             "full_name": original,
             "name": stripped,
+            "category": category[0],
         }
         entries.append(entry)
 
