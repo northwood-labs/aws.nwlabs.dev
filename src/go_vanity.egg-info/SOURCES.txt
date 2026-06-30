@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/generate/__init__.py
+src/generate/cli.py
+src/generate/py.typed
+src/go_vanity.egg-info/PKG-INFO
+src/go_vanity.egg-info/SOURCES.txt
+src/go_vanity.egg-info/dependency_links.txt
+src/go_vanity.egg-info/requires.txt
+src/go_vanity.egg-info/top_level.txt
+tests/test_properties.py

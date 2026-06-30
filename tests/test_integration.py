@@ -1,0 +1,116 @@
+# Integration test: end-to-end run with mocked tfschema output.
+#
+# **Validates: Requirements 4.1, 5.1, 7.1, 7.2, 7.3, 8.2, 8.3**
+
+import shutil
+from pathlib import Path
+from unittest.mock import patch
+
+from generate.cli import main
+
+# ------------------------------------------------------------------------------
+# HELPERS
+
+
+TEMPLATE_SOURCE = Path(__file__).resolve().parent.parent / "src" / "generate" / "templates" / "redirect.html.j2"
+
+
+def setup_project(tmp_path: Path) -> None:
+    """
+    Set up a temporary project directory with the template and docs structure.
+    """
+
+    # Copy actual template into expected location
+    template_dir = tmp_path / "src" / "generate" / "templates"
+    template_dir.mkdir(parents=True)
+    shutil.copy(TEMPLATE_SOURCE, template_dir / "redirect.html.j2")
+
+    # Create docs directory with preserved files
+    docs_dir = tmp_path / "docs"
+    docs_dir.mkdir(parents=True)
+    (docs_dir / "404.html").write_text("not found")
+    (docs_dir / ".nojekyll").write_text("")
+    (docs_dir / "CNAME").write_text("aws.nwlabs.dev")
+
+    # Create stale files that should be removed
+    stale_resource = docs_dir / "r" / "old_resource"
+    stale_resource.mkdir(parents=True)
+    (stale_resource / "index.html").write_text("stale resource")
+
+    stale_data = docs_dir / "d" / "old_data_source"
+    stale_data.mkdir(parents=True)
+    (stale_data / "index.html").write_text("stale data source")
+
+
+# ------------------------------------------------------------------------------
+# INTEGRATION TESTS
+
+
+@patch("generate.cli.run_tfschema")
+def test_end_to_end_generates_correct_files(
+    mock_tfschema: object,
+    tmp_path: Path,
+) -> None:
+    """
+    Full end-to-end test: mock tfschema output and verify file creation,
+    content, directory structure, stale file cleanup, and preserved files.
+    """
+
+    setup_project(tmp_path)
+
+    # Mock tfschema: first call returns resources, second returns data sources
+    mock_tfschema.side_effect = [  # type: ignore[attr-defined]
+        ["aws_instance", "aws_vpc"],
+        ["aws_ami"],
+    ]
+
+    # Patch project_root and template_dir to use tmp_path
+    with patch("generate.cli.Path") as mock_path_cls:
+        # Path(__file__).resolve().parent.parent.parent -> tmp_path
+        mock_file_path = mock_path_cls.return_value
+        mock_file_path.resolve.return_value.parent.parent.parent = tmp_path
+
+        # Path(__file__).parent / "templates" -> actual template dir
+        mock_file_path.parent.__truediv__ = lambda self, other: tmp_path / "src" / "generate" / other
+
+        exit_code = main()
+
+    assert exit_code == 0
+
+    docs_dir = tmp_path / "docs"
+
+    # Verify resource redirect files exist
+    instance_html = docs_dir / "r" / "instance" / "index.html"
+    vpc_html = docs_dir / "r" / "vpc" / "index.html"
+    assert instance_html.exists(), "docs/r/instance/index.html should exist"
+    assert vpc_html.exists(), "docs/r/vpc/index.html should exist"
+
+    # Verify data source redirect file exists
+    ami_html = docs_dir / "d" / "ami" / "index.html"
+    assert ami_html.exists(), "docs/d/ami/index.html should exist"
+
+    # Verify HTML content of a resource redirect
+    content = instance_html.read_text()
+    assert "<!DOCTYPE html>" in content
+    assert '<html lang="en">' in content
+    assert '<meta charset="UTF-8">' in content
+    assert "meta http-equiv=\"refresh\" content=\"0;URL='" in content
+    assert "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance" in content
+    assert '<link rel="canonical"' in content
+    assert "<body>" in content
+    assert "<a href=" in content
+
+    # Verify HTML content of a data source redirect
+    ami_content = ami_html.read_text()
+    assert "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami" in ami_content
+
+    # Verify stale files were cleaned
+    assert not (docs_dir / "r" / "old_resource").exists(), "Stale resource directory should be removed"
+    assert not (docs_dir / "d" / "old_data_source").exists(), "Stale data source directory should be removed"
+
+    # Verify preserved files still exist
+    assert (docs_dir / "404.html").exists(), "docs/404.html should be preserved"
+    assert (docs_dir / ".nojekyll").exists(), "docs/.nojekyll should be preserved"
+    assert (docs_dir / "CNAME").exists(), "docs/CNAME should be preserved"
+    assert (docs_dir / "404.html").read_text() == "not found"
+    assert (docs_dir / "CNAME").read_text() == "aws.nwlabs.dev"

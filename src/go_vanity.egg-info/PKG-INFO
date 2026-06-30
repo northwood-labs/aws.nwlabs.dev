@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: go-vanity
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: >=3.14
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: jinja2>=3.1.6
+Requires-Dist: pygithub>=2.9.1
+Dynamic: license-file
+
+# Generate shorter Terraform registry URLs for AWS Provider
+
+## Install dependendencies
+
+```bash
+brew bundle
+```
+
+## Install Terraform providers
+
+```bash
+TENV_AUTO_INSTALL=true terraform init
+```
