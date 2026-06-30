@@ -145,7 +145,7 @@ wheels = [
 ]
 
 [[package]]
-name = "go-vanity"
+name = "generate"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
