@@ -1,3 +1,4 @@
+import json
 import re
 import shutil
 import subprocess
@@ -104,9 +105,9 @@ def parse_provider_version(output: str) -> str | None:
     """
     Extract the AWS provider version from `terraform --version` output.
 
-    Searches for a line matching the hashicorp/aws provider pattern and
-    returns the version string (e.g., "6.52.0") without the `v` prefix.
-    Returns None if no match is found. Uses only the first matching line.
+    Searches for a line matching the hashicorp/aws provider pattern and returns
+    the version string (e.g., "6.52.0") without the `v` prefix. Returns None if
+    no match is found. Uses only the first matching line.
     """
 
     match = re.search(
@@ -160,13 +161,13 @@ def build_entry_list(
     category: str,
 ) -> list[dict[str, str]]:
     """
-    Construct a list of entry dictionaries from parallel lists of stripped
-    and original names.
+    Construct a list of entry dictionaries from parallel lists of stripped and
+    original names.
 
     Each entry has an `href` (the full Terraform Registry URL via
-    `build_target_url`) and a `full_name` (the original aws_-prefixed name).
-    The `category` parameter is "resources" or "data-sources", passed through
-    to `build_target_url`. Preserves input order.
+    `build_target_url`) and a `full_name` (the original aws_-prefixed name). The
+    `category` parameter is "resources" or "data-sources", passed through to
+    `build_target_url`. Preserves input order.
     """
 
     entries: list[dict[str, str]] = []
@@ -263,8 +264,8 @@ def render_index_template(
     Load a named template from the Jinja2 environment, render it with the
     provided context, and write the result to output_path.
 
-    Creates parent directories as needed. Exits on template-not-found,
-    template render errors, or filesystem write errors.
+    Creates parent directories as needed. Exits on template-not-found, template
+    render errors, or filesystem write errors.
     """
 
     try:
@@ -312,8 +313,8 @@ def main() -> int:
 
     Orchestrates the full pipeline: fetch type names from tfschema, strip
     prefixes, extract provider version, build entry lists, clean output
-    directories, load templates, generate redirects, render index pages,
-    and print a summary.
+    directories, load templates, generate redirects, render index pages, and
+    print a summary.
     """
 
     project_root = Path(__file__).resolve().parent.parent.parent
@@ -440,6 +441,16 @@ def main() -> int:
             "provider_version": provider_version,
         },
     )
+
+    with open(project_root / "docs" / "index.json", 'w') as json_file:
+        json.dump(
+            {
+                "provider_version": provider_version,
+                "datasources": datasource_entries,
+                "resources": resource_entries,
+            },
+            json_file,
+        )
 
     # Print summary
     print(
