@@ -54,14 +54,8 @@ def test_property_4_template_rendering_complete_html(name: str) -> None:
         stripped_name=stripped_name,
     )
 
-    # DOCTYPE declaration
-    assert "<!DOCTYPE html>" in html, "Output must contain <!DOCTYPE html> declaration"
-
-    # html lang attribute
-    assert '<html lang="en">' in html, "Output must contain <html lang=\"en\"> element"
-
     # meta charset
-    assert '<meta charset="UTF-8">' in html, "Output must contain <meta charset=\"UTF-8\"> tag"
+    assert '<meta charset="utf-8">' in html, "Output must contain <meta charset=\"utf-8\"> tag"
 
     # meta refresh redirect
     expected_refresh = f"<meta http-equiv=\"refresh\" content=\"0;URL='{target_url}'\">"

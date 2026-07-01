@@ -15,12 +15,12 @@ config_version = '1.0'
 
   # Do not look for @TODO markers in files whose paths match these regex
   # patterns. Mostly for ignoring anything in the KiroGraph database.
-  todo_ignore = [ ".*\\.db$" ]
+  todo_ignore = [".*\\.db$"]
 
   # We don't want to accidentally define a template file as a stub, or
   # vice-versa. We define our expectations here, and throw errors when they are
   # (accidentally) violated.
   [default.error_if_path_does_not_contain]
-    stubs = [ "stubs?/" ]
-    sources = [ "templates?/" ]
+    stubs   = ["stubs?/"]
+    sources = ["templates?/"]
     # destinations = []

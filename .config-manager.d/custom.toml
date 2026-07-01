@@ -1,0 +1,4 @@
+[[files]]
+  stub        = 'configs/stubs/.github/workflows/generate.yml'
+  source      = 'configs/templates/.github/workflows/__harden-hosts.yml'
+  destination = '.github/workflows/generate.yml'

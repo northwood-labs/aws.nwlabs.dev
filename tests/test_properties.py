@@ -42,7 +42,13 @@ def build_file_path(stripped_name: str, category: str) -> str:
 
 
 @settings(max_examples=100)
-@given(raw=st.text(alphabet=st.characters(categories=("L", "N", "P", "Z", "S")), min_size=0, max_size=200))
+@given(
+    raw=st.text(
+        alphabet=st.characters(categories=("L", "N", "P", "Z", "S")),  # zuban: ignore[arg-type]
+        min_size=0,
+        max_size=200,
+    )
+)
 def test_property_1_line_parsing_strips_whitespace(raw: str) -> None:
     """
     For any multi-line string, parsing it shall produce entries that are all
@@ -58,7 +64,13 @@ def test_property_1_line_parsing_strips_whitespace(raw: str) -> None:
 
 
 @settings(max_examples=100)
-@given(raw=st.text(alphabet=st.characters(categories=("L", "N", "P", "Z", "S")), min_size=0, max_size=200))
+@given(
+    raw=st.text(
+        alphabet=st.characters(categories=("L", "N", "P", "Z", "S")),  # zuban: ignore[arg-type]
+        min_size=0,
+        max_size=200,
+    )
+)
 def test_property_1_line_parsing_preserves_content(raw: str) -> None:
     """
     For any multi-line string, no non-whitespace content from the original
@@ -79,7 +91,13 @@ def test_property_1_line_parsing_preserves_content(raw: str) -> None:
 
 
 @settings(max_examples=100)
-@given(suffix=st.text(alphabet=st.characters(categories=("L", "N", "P")), min_size=1, max_size=50))
+@given(
+    suffix=st.text(
+        alphabet=st.characters(categories=("L", "N", "P")),  # zuban: ignore[arg-type]
+        min_size=1,
+        max_size=50,
+    )
+)
 def test_property_2_strips_aws_prefix(suffix: str) -> None:
     """
     For any string that starts with aws_ followed by one or more characters,
@@ -94,9 +112,11 @@ def test_property_2_strips_aws_prefix(suffix: str) -> None:
 
 @settings(max_examples=100)
 @given(
-    name=st.text(alphabet=st.characters(categories=("L", "N", "P")), min_size=1, max_size=50).filter(
-        lambda s: not s.startswith("aws_")
-    )
+    name=st.text(
+        alphabet=st.characters(categories=("L", "N", "P")),  # zuban: ignore[arg-type]
+        min_size=1,
+        max_size=50,
+    ).filter(lambda s: not s.startswith("aws_"))
 )
 def test_property_2_no_prefix_returns_unchanged(name: str) -> None:
     """

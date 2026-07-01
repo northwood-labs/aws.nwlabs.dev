@@ -140,37 +140,37 @@ _A property is a characteristic or behavior that should hold true across all val
 
 _For any_ multi-line string input, parsing it as a newline-delimited list shall produce a result where every entry is non-empty, contains no leading or trailing whitespace, and no non-whitespace content from the original input is lost.
 
-**Validates: Requirements 1.2, 2.2**
+**Validates: Requirements 1.2, 2.2.**
 
 ### Property 2: prefix stripping correctness
 
 _For any_ string that starts with `aws_` followed by one or more characters, stripping the prefix shall produce the exact substring after `aws_`. _For any_ string that does not start with `aws_`, stripping shall return the string unchanged.
 
-**Validates: Requirements 3.1, 3.2, 3.3**
+**Validates: Requirements 3.1, 3.2, 3.3.**
 
 ### Property 3: URL construction follows registry pattern
 
 _For any_ valid stripped name and category (either `"resources"` or `"data-sources"`), `build_target_url` shall produce a URL equal to `https://registry.terraform.io/providers/hashicorp/aws/latest/docs/{category}/{stripped_name}`.
 
-**Validates: Requirements 4.2, 5.2**
+**Validates: Requirements 4.2, 5.2.**
 
 ### Property 4: template rendering produces complete HTML structure
 
 _For any_ valid target URL, original name, and stripped name, rendering the redirect template shall produce output that contains: a `<!DOCTYPE html>` declaration, an `<html lang="en">` element, a `<meta charset="UTF-8">` tag, a `<meta http-equiv="refresh" content="0;URL='{target_url}'">` tag, a `<link rel="canonical" href="{target_url}">` tag, a `<title>` element with non-empty text, and a `<body>` containing an `<a>` element whose `href` equals the target URL with non-empty link text.
 
-**Validates: Requirements 4.2, 4.3, 5.2, 5.3, 6.1, 6.2, 6.3, 6.4, 6.5, 9.2, 9.3**
+**Validates: Requirements 4.2, 4.3, 5.2, 5.3, 6.1, 6.2, 6.3, 6.4, 6.5, 9.2, 9.3.**
 
 ### Property 5: file path construction
 
 _For any_ stripped resource name, the output file path shall be `docs/r/{name}/index.html`. _For any_ stripped data source name, the output file path shall be `docs/d/{name}/index.html`.
 
-**Validates: Requirements 4.1, 5.1**
+**Validates: Requirements 4.1, 5.1.**
 
 ### Property 6: summary line contains correct counts
 
 _For any_ pair of non-negative integers representing resource count and data source count, the summary output line shall contain both numeric values as distinct substrings.
 
-**Validates: Requirements 8.3**
+**Validates: Requirements 8.3.**
 
 ## Error handling
 

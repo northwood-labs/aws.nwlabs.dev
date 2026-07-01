@@ -69,7 +69,7 @@ def test_property_1_version_extraction_round_trip(major: int, minor: int, patch:
     lines=st.lists(
         st.text(
             alphabet=st.characters(
-                categories=("L", "N", "P", "Z", "S"),
+                categories=("L", "N", "P", "Z", "S"),  # zuban: ignore[arg-type]
                 exclude_characters="+",
             ),
             min_size=0,

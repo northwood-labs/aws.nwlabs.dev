@@ -146,35 +146,35 @@ r"\+\s+provider\s+registry\.terraform\.io/hashicorp/aws\s+v(\d+\.\d+\.\d+)"
 
 _A property is a characteristic or behavior that should hold true across all valid executions of a system — essentially, a formal statement about what the system should do. Properties serve as the bridge between human-readable specifications and machine-verifiable correctness guarantees._
 
-### Property 1: Version extraction round-trip
+### Property 1: version extraction round-trip
 
 _For any_ three non-negative integers (major, minor, patch), if a `terraform --version` output string contains the line `+ provider registry.terraform.io/hashicorp/aws v<major>.<minor>.<patch>`, then `parse_provider_version` shall return the string `"<major>.<minor>.<patch>"` with the `v` prefix removed.
 
-**Validates: Requirements 1.1, 6.1**
+**Validates: Requirements 1.1, 6.1.**
 
-### Property 2: Non-matching output returns None
+### Property 2: non-matching output returns none
 
 _For any_ multi-line string that does not contain a line matching the pattern `+ provider registry.terraform.io/hashicorp/aws v<digits>.<digits>.<digits>`, `parse_provider_version` shall return `None`.
 
-**Validates: Requirements 1.4, 6.2**
+**Validates: Requirements 1.4, 6.2.**
 
-### Property 3: First match wins for multiple provider lines
+### Property 3: first match wins for multiple provider lines
 
 _For any_ `terraform --version` output containing two or more lines matching the `hashicorp/aws` provider pattern with distinct version strings, `parse_provider_version` shall return the version from the first matching line only.
 
-**Validates: Requirements 1.2, 6.3**
+**Validates: Requirements 1.2, 6.3.**
 
-### Property 4: Entry list preserves input order
+### Property 4: entry list preserves input order
 
 _For any_ list of valid resource or data source names and either category (`"resources"` or `"data-sources"`), `build_entry_list` shall produce an output list whose elements appear in the same order as the input names.
 
-**Validates: Requirements 2.1, 3.1**
+**Validates: Requirements 2.1, 3.1.**
 
-### Property 5: Entry fields are correctly constructed
+### Property 5: entry fields are correctly constructed
 
 _For any_ valid name (with or without `aws_` prefix) and either category, each entry produced by `build_entry_list` shall have an `href` equal to `build_target_url(stripped_name, category)` and a `full_name` equal to the original input name.
 
-**Validates: Requirements 2.2, 2.3, 2.5, 3.2, 3.3, 3.5**
+**Validates: Requirements 2.2, 2.3, 2.5, 3.2, 3.3, 3.5.**
 
 ## Error handling
 

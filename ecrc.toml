@@ -4,11 +4,11 @@
 ##
 
 # @config-manager:start config
-Debug = false
-IgnoreDefaults = true
-NoColor = false
+Debug           = false
+IgnoreDefaults  = true
+NoColor         = false
 SpacesAfterTabs = false
-Verbose = false
+Verbose         = false
 # @config-manager:end config
 
 Exclude = [
@@ -23,6 +23,9 @@ Exclude = [
   "testdata/",
 
   # Files
+  "LICENSE(\\.(md|txt))?$",
+  "Taskfile\\.([^\\.]+)\\.(yaml|yml)$",
+  "Taskfile\\.(yaml|yml)$",
   "\\.7z$",
   "\\.avif$",
   "\\.bak$",
@@ -69,8 +72,8 @@ Exclude = [
   "\\.terraform-docs\\.yml$",
   "\\.terraform/.*$",
   "\\.terraform\\.lock\\.hcl$",
-  "\\.tfstate\\.backup$",
   "\\.tfstate$",
+  "\\.tfstate\\.backup$",
   "\\.ttf$",
   "\\.txt$",
   "\\.vscode/.*?\\.(json|sh|toml|yaml|yml)$",
@@ -97,7 +100,5 @@ Exclude = [
   "pnpm-lock\\.yaml$",
   "pnpm-workspace\\.yaml$",
   "standard\\.mk$",
-  "Taskfile\\.([^\\.]+)\\.(yaml|yml)$",
-  "Taskfile\\.(yaml|yml)$",
   # @config-manager:end excludes
 ]

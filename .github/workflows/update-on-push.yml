@@ -39,12 +39,12 @@ jobs:
       # @config-manager:start harden-runner
       - name: Harden Runner
         uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
+        # @config-manager:end harden-runner
+        # @config-manager:start step-security-hosts
         with:
           disable-sudo: true
           egress-policy: block
-          # @config-manager:end harden-runner
           allowed-endpoints: >
-            # @config-manager:start step-security-hosts
             100.20.106.61:443
             100.23.207.142:443
             100.23.248.170:443
@@ -160,7 +160,7 @@ jobs:
             winatp-gw-cus.microsoft.com:443
             www.bestpractices.dev:443
             x.cp.wd.microsoft.com:443
-            # @config-manager:end step-security-hosts
+          # @config-manager:end step-security-hosts
 
       # @config-manager:start workflow-run-steps
       - name: Install Node.js

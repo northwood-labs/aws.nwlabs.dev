@@ -53,6 +53,7 @@ rules:
     config:
       allow:
         - actions/*
+        - astral-sh/setup-uv
         - github/codeql-action/*
         - orhun/git-cliff-action
         - step-security/*
