@@ -8,6 +8,10 @@
   source      = 'configs/templates/cliff.toml'
   destination = 'cliff.toml'
 
+[[files]]
+  stub        = 'configs/stubs/CHANGELOG.md'
+  destination = 'CHANGELOG.md'
+
 # Snyk: Ignore definition
 # https://snyk.io
 [[files]]
