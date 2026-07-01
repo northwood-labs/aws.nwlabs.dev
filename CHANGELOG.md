@@ -1,20 +1,13 @@
-## master (Unreleased)
+# CHANGELOG
 
-## 0.7.10 (2026/05/04)
+All notable changes to this project will be documented in this file.
 
-ENHANCEMENTS:
+The format is based on [Keep a Changelog](https://keepachangelog.com), adheres to [Semantic Versioning](https://semver.org), and uses [Conventional Commit](https://www.conventionalcommits.org) syntax.
 
-* Pin all GitHub Actions ([#67](https://github.com/minamijoyo/tfschema/pull/67))
-* Add support for Terraform v1.15 ([#68](https://github.com/minamijoyo/tfschema/pull/68))
-* Add support for OpenTofu v1.11 ([#69](https://github.com/minamijoyo/tfschema/pull/69))
-* Update Go to v1.26 ([#70](https://github.com/minamijoyo/tfschema/pull/70))
-* Update actions/checkout to v6 ([#71](https://github.com/minamijoyo/tfschema/pull/71))
-* Update create-github-app-token to v3 ([#72](https://github.com/minamijoyo/tfschema/pull/72))
-* Update goreleaser-action to v7 ([#73](https://github.com/minamijoyo/tfschema/pull/73))
+## Unreleased
 
-## 0.7.9 (2024/08/10)
+### :test_tube: Testing
 
-<<<<<<< Updated upstream
 * [`568cc68`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/568cc68456ec73338faefe3e4325382c75718e16): Fixing CHANGELOG auto-update. ([@skyzyx](https://github.com/skyzyx))
 * [`34fe18d`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/34fe18dea63c612afcfbd0119f455b47cdf9b8a3): Fixing CHANGELOG auto-update. ([@skyzyx](https://github.com/skyzyx))
 * [`7b38851`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/7b388510883ea954833af6a773d98662c076b86b): Fixing CHANGELOG auto-update. ([@skyzyx](https://github.com/skyzyx))
@@ -28,138 +21,41 @@ ENHANCEMENTS:
 * [`c2d2b7b`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/c2d2b7b1ac085d00a624de8a0164ff812b3e4750): Fixing CHANGELOG auto-update. ([@skyzyx](https://github.com/skyzyx))
 * [`9b3efe7`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/9b3efe769ca6703662b8254dcc1443099826cddc): Fixing CHANGELOG auto-update. ([@skyzyx](https://github.com/skyzyx))
 * [`5095fca`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/5095fca4a7b767f78e7d686a38e186553b1fd1cd): Fixing CHANGELOG auto-update. ([@skyzyx](https://github.com/skyzyx))
-=======
-ENHANCEMENTS:
->>>>>>> Stashed changes
+* [`f272137`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/f272137a2b836e5dc73f65ceb535ecfa4ef451d7): Fixing CHANGELOG auto-update. ([@skyzyx](https://github.com/skyzyx))
 
-* Update to use go 1.22 ([#58](https://github.com/minamijoyo/tfschema/pull/58))
-* Use docker compose command instead of docker-compose ([#59](https://github.com/minamijoyo/tfschema/pull/59))
-* Update alpine to v3.20 ([#60](https://github.com/minamijoyo/tfschema/pull/60))
-* Update golangci-lint to v1.59.1 ([#61](https://github.com/minamijoyo/tfschema/pull/61))
-* Update setup-go to v5 ([#62](https://github.com/minamijoyo/tfschema/pull/62))
-* Add support for Terraform 1.9 ([#63](https://github.com/minamijoyo/tfschema/pull/63))
-* Add support for OpenTofu 1.8 ([#64](https://github.com/minamijoyo/tfschema/pull/64))
-* Update goreleaser to v2 ([#65](https://github.com/minamijoyo/tfschema/pull/65))
-* Switch to the official action for creating GitHub App token ([#66](https://github.com/minamijoyo/tfschema/pull/66))
+### :tractor: Refactor
 
-## 0.7.8 (2024/01/14)
+* [`b90ccdd`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/b90ccdd2cf6d3548b859d56401baf864f6235ec5): Remove redirect meta tags from index pages. ([@skyzyx](https://github.com/skyzyx))
+* [`960e7b1`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/960e7b129ca024734a696a13fd396532588e4b31): Convert documentation lists from ordered to unordered. ([@skyzyx](https://github.com/skyzyx))
 
-ENHANCEMENTS:
+### <!-- 0 -->:rocket: Features
 
-* Add support for OpenTofu v1.6 ([#55](https://github.com/minamijoyo/tfschema/pull/55))
-* Add support for Terraform v1.6 ([#56](https://github.com/minamijoyo/tfschema/pull/56))
-* Update actions/checkout to v4 ([#57](https://github.com/minamijoyo/tfschema/pull/57))
+* [`9fcaf92`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/9fcaf928d6e5fac0372a893ba76fe0b5c4d08ee3): Initial commit. ([@skyzyx](https://github.com/skyzyx))
+* [`c319b7e`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/c319b7ea11b80c6a190daa30540aee91f503d011): Add index pages. ([@skyzyx](https://github.com/skyzyx))
+* [`0bd1f0b`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/0bd1f0b87f606f781d6e7bbfe30cf5b08ca72ff0): Add index page. ([@skyzyx](https://github.com/skyzyx))
+* [`59e8da6`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/59e8da6cd4daa512fabef29905f73912a468fbd3): Add a stylesheet. ([@skyzyx](https://github.com/skyzyx))
+* [`ce5452e`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/ce5452e5d8f8599415407950e9d2dffcaa1c8889): Remove stylesheet. Added a JSON index. ([@skyzyx](https://github.com/skyzyx))
+* [`7a96d62`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/7a96d62dceb8faeb06f58eb90f106bc153c05cb7): Remove stylesheet. ([@skyzyx](https://github.com/skyzyx))
+* [`415ff9b`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/415ff9beb3ee2051822aace80861967e05132bac): Add Twitter, OpenGraph, oEmbed cards. ([@skyzyx](https://github.com/skyzyx))
+* [`aceb5b7`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/aceb5b705563de58b044162a77302d8d1f7d694d): Add Twitter, OpenGraph, oEmbed cards. ([@skyzyx](https://github.com/skyzyx))
+* [`1234c61`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/1234c617db9ae486fd9fa4e9d75010092e588c54): Add Twitter, OpenGraph, oEmbed cards. ([@skyzyx](https://github.com/skyzyx))
+* [`961b174`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/961b1748e2343747d91dab83c1f1525195978d1d): Add Twitter, OpenGraph, oEmbed cards. ([@skyzyx](https://github.com/skyzyx))
+* [`cd79c7f`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/cd79c7f6e6eb61587ad50d79792a98bd8445a42c): Add Twitter, OpenGraph, oEmbed cards. ([@skyzyx](https://github.com/skyzyx))
+* [`23d0279`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/23d0279ac914fc2e2bed9a718d2f707914079a28): Add Twitter, OpenGraph, oEmbed cards. ([@skyzyx](https://github.com/skyzyx))
+* [`a9fd4fd`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/a9fd4fd369aed00c753b468e54ce8388b44093ec): Add Twitter, OpenGraph, oEmbed cards. ([@skyzyx](https://github.com/skyzyx))
+* [`0cc56c5`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/0cc56c5f1c9059fca8a2c33e065bbf6cfe84a729): Add Twitter, OpenGraph, oEmbed cards. ([@skyzyx](https://github.com/skyzyx))
+* [`4b0d6fc`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/4b0d6fc5ce3b613287d7cdfcbdc9cec95f71d108): Add Twitter, OpenGraph, oEmbed cards. ([@skyzyx](https://github.com/skyzyx))
+* [`808ceef`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/808ceeffaf523f15239802e6464823f1b307dd5e): Add Twitter, OpenGraph, oEmbed cards. ([@skyzyx](https://github.com/skyzyx))
 
-## 0.7.7 (2023/11/22)
+### <!-- 1 -->:bug: Bug Fixes
 
-ENHANCEMENTS:
+* [`8e24737`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/8e24737f2d3e3de9026bf017e291b2c42c9e7e08): Added an action to run daily. Ran the linter. ([@skyzyx](https://github.com/skyzyx))
+* [`e16ac06`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/e16ac06a0051e6c7dd6c559fe73dc33292c57958): Added a CHANGELOG stub. ([@skyzyx](https://github.com/skyzyx))
 
-* Disable CGO ([#54](https://github.com/minamijoyo/tfschema/pull/54))
+### <!-- ZZZ -->:gear: Miscellaneous Tasks
 
-## 0.7.6 (2023/11/18)
+* [`9764501`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/9764501a7ee13026f1a5d00eeddaa2f6842507f4): Add PyPI access and update 404 page styling. ([@skyzyx](https://github.com/skyzyx))
+* [`35520a1`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/35520a1e076e1c660b45481f0a43cacfba9b8754): Added Terraform and tfschema to generate workflow. ([@skyzyx](https://github.com/skyzyx))
+* [`c5155d4`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/c5155d45440af1e93cea8ef38579af12a3f27f11): Refactor changelog and tooling configuration. ([@skyzyx](https://github.com/skyzyx))
 
-ENHANCEMENTS:
-
-* Fix the git permission issue ([#49](https://github.com/minamijoyo/tfschema/pull/49))
-* Update Go to v1.21 ([#51](https://github.com/minamijoyo/tfschema/pull/51))
-* Add OpenTofu to test matrix ([#52](https://github.com/minamijoyo/tfschema/pull/52))
-
-## 0.7.5 (2022/08/12)
-
-ENHANCEMENTS:
-
-* Use GitHub App token for updating brew formula on release ([#47](https://github.com/minamijoyo/tfschema/pull/47))
-
-## 0.7.4 (2022/07/08)
-
-BUG FIXES:
-
-* Fix build for windows_arm64 ([#46](https://github.com/minamijoyo/tfschema/pull/46))
-
-## 0.7.3 (2022/07/08)
-
-ENHANCEMENTS:
-
-* Use golangci-lint instead of golint ([#40](https://github.com/minamijoyo/tfschema/pull/40))
-* Fix lint errors ([#41](https://github.com/minamijoyo/tfschema/pull/41))
-* Update golangci-lint to v1.45.2 and actions to latest ([#42](https://github.com/minamijoyo/tfschema/pull/42))
-* Update Go to v1.17.11 and Alpine to v3.16 ([#44](https://github.com/minamijoyo/tfschema/pull/44))
-* Add arm64 builds to support M1 mac ([#45](https://github.com/minamijoyo/tfschema/pull/45))
-
-## 0.7.2 (2021/12/20)
-
-BUG FIXES:
-
-* Fixed broken links from 'tfschema resource browse \<resource\>' ([#38](https://github.com/minamijoyo/tfschema/pull/38))
-
-## 0.7.1 (2021/10/28)
-
-ENHANCEMENTS:
-
-* Add acceptance tests ([#33](https://github.com/minamijoyo/tfschema/pull/33))
-* Restrict permissions for GitHub Actions ([#35](https://github.com/minamijoyo/tfschema/pull/35))
-* Set timeout for GitHub Actions ([#36](https://github.com/minamijoyo/tfschema/pull/36))
-
-## 0.7.0 (2021/04/26)
-
-BREAKING CHANGES:
-
-* Drop Terraform v0.11 support ([#30](https://github.com/minamijoyo/tfschema/pull/30))
-
-ENHANCEMENTS:
-
-* Support Terraform v0.15 ([#31](https://github.com/minamijoyo/tfschema/pull/31))
-
-## 0.6.0 (2020/12/04)
-
-ENHANCEMENTS:
-
-* Support Terraform v0.14 ([#29](https://github.com/minamijoyo/tfschema/pull/29))
-
-## 0.5.0 (2020/09/09)
-
-INCOMPATIBILITIES AND NOTES:
-
-* Allow root directory for plugins to be set when using NewClient ([#25](https://github.com/minamijoyo/tfschema/pull/25))
-
-For CLI users, there is no breaking changes and you can now set a terraform root module directory via `TFSCHEMA_ROOT_DIR` environment variable.
-For library users, the method signatures of `NewClient`, `NewGRPCClient` and `NewNetRPCClient` in `tfschema` package have been changed and now require a new `Option` struct.
-
-## 0.4.1 (2020/08/27)
-
-ENHANCEMENTS:
-
-* Setup CI with GitHub Actions ([#23](https://github.com/minamijoyo/tfschema/pull/23))
-* Setup CD with goreleaser and GitHub Actions ([#24](https://github.com/minamijoyo/tfschema/pull/24))
-
-## 0.4.0 (2020/08/13)
-
-INCOMPATIBILITIES AND NOTES:
-
-* Terraform v0.13 support ([#21](https://github.com/minamijoyo/tfschema/pull/21))
-
-## 0.3.0 (2019/05/23)
-
-INCOMPATIBILITIES AND NOTES:
-
-* Terraform v0.12 support ([#14](https://github.com/minamijoyo/tfschema/pull/14))
-
-You can use both Terraform v0.11/v0.12 supported providers.
-
-* Change type notation to HCL2 type annotation ([#16](https://github.com/minamijoyo/tfschema/pull/16))
-
-For most tfschema users, this appears as if the type notation had just been changed to lowercase.
-It was originally capitalized because cty's Go type was capitalized.
-I know we can still use capitalized letters for maximum compatibility, but I believe that it will be easier to be consistent to use HCL2 style when representing complex data types.
-
-## 0.2.0 (2018/08/31)
-
-INCOMPATIBILITIES AND NOTES:
-
-* Change JSON output format for easy parsing ([#6](https://github.com/minamijoyo/tfschema/pull/6))
-
-## 0.1.2 (2018/07/27)
-
-BUG FIXES:
-
-* Use newest plugin when multiple versions are found ([#2](https://github.com/minamijoyo/tfschema/pull/2))
+<p>Generated on 2026-07-01.</p>
