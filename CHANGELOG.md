@@ -56,6 +56,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 * [`8e24737`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/8e24737f2d3e3de9026bf017e291b2c42c9e7e08): Added an action to run daily. Ran the linter. ([@skyzyx](https://github.com/skyzyx))
 * [`e16ac06`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/e16ac06a0051e6c7dd6c559fe73dc33292c57958): Added a CHANGELOG stub. ([@skyzyx](https://github.com/skyzyx))
+* [`3267e34`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/3267e34be5f60e327f5f6ee82175931b33f4efaa): Restored the accidentally-overwritten LICENSE and `README.md` files to their original state. ([@skyzyx](https://github.com/skyzyx))
 
 ### <!-- ZZZ -->:gear: Miscellaneous Tasks
 
