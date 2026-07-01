@@ -207,12 +207,12 @@ jobs:
           git config user.name "Northwood Labs (Bot)"
           git config user.email "bot@northwood-labs.com"
 
-          set +e
+          set +ex
 
           git add .
           git status | grep modified
           if [ $? -eq 0 ]; then
             git commit -a -m "automation: Updated AUTHORS and CHANGELOG on $(date)."
-            git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git main
+            git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git main
           fi
     # @config-manager:end workflow-run-steps
