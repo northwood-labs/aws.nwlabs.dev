@@ -172,7 +172,8 @@ jobs:
       - name: Install tfschema
         run: |
           wget https://github.com/minamijoyo/tfschema/releases/download/v0.7.10/tfschema_0.7.10_linux_amd64.tar.gz -O /tmp/tfschema.tar.gz
-          tar -xzfv /tmp/tfschema.tar.gz -C /tmp/tfschema/
+          mkdir -p /tmp/tfschema
+          tar zxvf /tmp/tfschema.tar.gz -C /tmp/tfschema/
           mv -vf /tmp/tfschema/tfschema /usr/local/bin/tfschema
 
       - name: Configure Git to use HTTPS with the PAT
