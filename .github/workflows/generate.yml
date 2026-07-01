@@ -181,18 +181,17 @@ jobs:
           git config --global url."https://${{ secrets.GH_PUBLIC_TOKEN }}@github.com".insteadOf "ssh://git@github.com"
           git config --global advice.detachedHead false
 
-      - name: Pull latest changes
-        run: |
-          git pull --rebase --autostash
-
       - name: Generate
         id: generate
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           terraform init
-          rm -Rf ./docs/*
+          rm -Rf ./docs/d/* ./docs/r/*
           uv run generate
+
+          # Pull the CHANGELOG and any other changes
+          git pull --rebase --autostash
 
       - name: Git commit if changed
         run: |
