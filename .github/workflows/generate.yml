@@ -175,6 +175,12 @@ jobs:
           tar -xzf tfschema_0.7.10_linux_amd64.tar.gz
           mv -vf tfschema /usr/local/bin/tfschema
 
+      - name: Configure Git to use HTTPS with the PAT
+        run: |
+          git config --global url."https://${{ secrets.GH_PUBLIC_TOKEN }}@github.com/".insteadOf "https://github.com/"
+          git config --global url."https://${{ secrets.GH_PUBLIC_TOKEN }}@github.com".insteadOf "ssh://git@github.com"
+          git config --global advice.detachedHead false
+
       - name: Generate
         id: generate
         env:
@@ -184,18 +190,16 @@ jobs:
           rm -Rf ./docs/*
           uv run generate
 
-      - name: Git config
+      - name: Git commit if changed
         run: |
-          git config --global user.name "Northwood Labs Bot"
-          git config --global user.email "bot@northwood-labs.com"
-          git pull --rebase --autostash
+          git config user.name "Northwood Labs (Bot)"
+          git config user.email "bot@northwood-labs.com"
 
-      - name: Git commit
-        run: |
-          if [[ "$(git status -sb | wc -l)" == "1" ]]; then
-            echo "No changes to commit."
-          else
-            git add .
-            git commit -m "Automated commit: $(date +"%Y-%m-%dT%T%z")"
-            git push origin main
+          set +ex
+
+          git add .
+          git status | grep modified
+          if [ $? -eq 0 ]; then
+            git commit -a -m "automation: Updated AUTHORS and CHANGELOG on $(date)."
+            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git main
           fi
