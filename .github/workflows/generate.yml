@@ -166,6 +166,15 @@ jobs:
       - name: Install the latest version of uv
         uses: astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39 # v8.2.0
 
+      - name: Install Terraform
+        uses: step-security/setup-terraform@v4
+
+      - name: Install tfschema
+        run: |
+          wget https://github.com/minamijoyo/tfschema/releases/download/v0.7.10/tfschema_0.7.10_linux_amd64.tar.gz
+          tar -xzf tfschema_0.7.10_linux_amd64.tar.gz
+          mv -vf tfschema /usr/bin/local/tfschema
+
       - name: Generate
         id: generate
         env:
