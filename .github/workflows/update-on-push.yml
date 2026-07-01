@@ -201,6 +201,8 @@ jobs:
           ./scripts/generate-contributors.sh
 
       - name: Git commit if changed
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
           git config user.name "Northwood Labs (Bot)"
           git config user.email "bot@northwood-labs.com"
@@ -211,6 +213,6 @@ jobs:
           git status | grep modified
           if [ $? -eq 0 ]; then
             git commit -a -m "automation: Updated AUTHORS and CHANGELOG on $(date)."
-            git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git main
+            git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git main
           fi
     # @config-manager:end workflow-run-steps
