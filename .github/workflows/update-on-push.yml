@@ -182,6 +182,10 @@ jobs:
           git config --global url."https://${{ secrets.GH_PUBLIC_TOKEN }}@github.com".insteadOf "ssh://git@github.com"
           git config --global advice.detachedHead false
 
+      - name: Pull latest changes
+        run: |
+          git pull --rebase --autostash
+
       - name: Generate Changelog
         uses: orhun/git-cliff-action@f50e11560dce63f7c33227798f90b924471a88b5 # v4.8.0
         with:
@@ -211,7 +215,6 @@ jobs:
           git status | grep modified
           if [ $? -eq 0 ]; then
             git commit -a -m "automation: Updated AUTHORS and CHANGELOG on $(date)."
-            git pull --rebase --autostash
             git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git main
           fi
     # @config-manager:end workflow-run-steps
