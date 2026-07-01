@@ -54,9 +54,9 @@
 # Brewfile tools
 # https://docs.brew.sh/Brew-Bundle-and-Brewfile
 [[files]]
-  stub        = 'configs/stubs/tools/Brewfile.standard'
-  source      = 'configs/templates/tools/Brewfile.standard'
-  destination = 'tools/Brewfile.standard'
+  stub        = 'configs/stubs/tools/Brewfile.python'
+  source      = 'configs/templates/tools/Brewfile.python'
+  destination = 'tools/Brewfile.python'
 
   [files.post_update_hook]
     bash = 'brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=tools/Brewfile.python'
