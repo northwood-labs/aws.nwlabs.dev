@@ -175,6 +175,9 @@ jobs:
           tar -xzf tfschema_0.7.10_linux_amd64.tar.gz
           mv -vf tfschema /usr/local/bin/tfschema
 
+          which tfschema
+          echo "${PATH}"
+
       - name: Generate
         id: generate
         env:
