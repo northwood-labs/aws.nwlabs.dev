@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 * [`7b38851`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/7b388510883ea954833af6a773d98662c076b86b): Fixing CHANGELOG auto-update. ([@skyzyx](https://github.com/skyzyx))
 * [`1e8400a`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/1e8400a50b0b0c73656202755db2383cdb70c450): Fixing CHANGELOG auto-update. ([@skyzyx](https://github.com/skyzyx))
 * [`7bdb839`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/7bdb83980ab1a6ffb5bb46ecb057d50a4045d747): Fixing CHANGELOG auto-update. ([@skyzyx](https://github.com/skyzyx))
+* [`817cca6`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/817cca62333e71b8893e4278b54903307e8af978): Fixing CHANGELOG auto-update. ([@skyzyx](https://github.com/skyzyx))
 
 ### :tractor: Refactor
 
