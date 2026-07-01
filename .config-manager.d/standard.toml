@@ -62,6 +62,12 @@
   source      = 'configs/templates/lychee.toml'
   destination = 'lychee.toml'
 
+# Mailmap
+# https://git-scm.com/docs/gitmailmap
+[[files]]
+  stub        = 'configs/stubs/mailmap'
+  destination = '.mailmap'
+
 # OSV Scanner
 # https://osv.dev
 [[files]]
