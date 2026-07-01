@@ -34,9 +34,9 @@ local linters = new Mapping<String, Group> {
       ["end-of-file-fixer"] = (Builtins.newlines) {}
       // fix-smart-quotes
       // harper
-      // ["lychee"] = (Builtins.lychee) {
-      //   profiles = List("slow")
-      // }
+      ["lychee"] = (Builtins.lychee) {
+        profiles = List("slow")
+      }
       ["markdown-lint"] = (Builtins.rumdl) {}
       // mdschema
       ["mise-fmt"] = (Builtins.mise) {}
