@@ -194,7 +194,6 @@ jobs:
             -platform=linux_amd64 \
             -platform=linux_arm64 \
             -platform=windows_amd64 \
-            -platform=windows_arm64 \
           ;
 
           rm -Rf ./docs/d/* ./docs/r/*
