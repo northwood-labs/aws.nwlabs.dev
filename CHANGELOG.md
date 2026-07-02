@@ -65,5 +65,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 * [`c5155d4`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/c5155d45440af1e93cea8ef38579af12a3f27f11): Refactor changelog and tooling configuration. ([@skyzyx](https://github.com/skyzyx))
 * [`f46a74c`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/f46a74c4370da9693ac82335d3015811d57cc78a): Upgraded terraform init and added multi-platform provider locking. ([@skyzyx](https://github.com/skyzyx))
 * [`63425e6`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/63425e6b4350d810e5bcdda52774a66f76425e0d): Fixing Terraform issues. ([@skyzyx](https://github.com/skyzyx))
+* [`60920c2`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/60920c29ab52d8707d37f804fd75f88559aee987): Pass additional variables to template. ([@skyzyx](https://github.com/skyzyx))
 
 <p>Generated on 2026-07-02.</p>
