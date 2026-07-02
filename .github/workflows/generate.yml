@@ -187,7 +187,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          terraform init
+          terraform init -upgrade
+          terraform providers lock \
+            -platform=darwin_amd64 \
+            -platform=darwin_arm64 \
+            -platform=linux_amd64 \
+            -platform=linux_arm64 \
+            -platform=windows_amd64 \
+            -platform=windows_arm64 \
+          ;
+
           rm -Rf ./docs/d/* ./docs/r/*
           uv run generate
 
