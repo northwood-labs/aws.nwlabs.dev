@@ -235,6 +235,7 @@ def generate_redirects(
             target_url=target_url,
             original_name=original_name,
             stripped_name=stripped_name,
+            category=category_prefix,
         )
 
         output_path = base / "docs" / category_prefix / stripped_name / "index.html"
