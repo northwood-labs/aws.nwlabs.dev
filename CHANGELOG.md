@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 ## Unreleased
 
+### :art: Styling
+
+* [`acdb858`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/acdb8584c7331fcf6cee589cd6aed3eb5f9379cc): Modernize CSS formatting and add dark mode support. ([@skyzyx](https://github.com/skyzyx))
+
 ### :test_tube: Testing
 
 * [`568cc68`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/568cc68456ec73338faefe3e4325382c75718e16): Fixing CHANGELOG auto-update. ([@skyzyx](https://github.com/skyzyx))
