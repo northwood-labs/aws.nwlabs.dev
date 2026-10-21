@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 * [`acdb858`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/acdb8584c7331fcf6cee589cd6aed3eb5f9379cc): Modernize CSS formatting and add dark mode support. ([@skyzyx](https://github.com/skyzyx))
 
+### :dependabot: Building and Dependencies
+
+* [`f40fa5d`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/f40fa5d842158878d11d8d1da718cf0eebf0135f): **deps**: Bump `cryptography` ([@dependabot](https://github.com/dependabot))
+
 ### :test_tube: Testing
 
 * [`568cc68`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/568cc68456ec73338faefe3e4325382c75718e16): Fixing CHANGELOG auto-update. ([@skyzyx](https://github.com/skyzyx))
@@ -71,4 +75,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 * [`63425e6`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/63425e6b4350d810e5bcdda52774a66f76425e0d): Fixing Terraform issues. ([@skyzyx](https://github.com/skyzyx))
 * [`60920c2`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/60920c29ab52d8707d37f804fd75f88559aee987): Pass additional variables to template. ([@skyzyx](https://github.com/skyzyx))
 
-<p>Generated on 2026-07-02.</p>
+<p>Generated on 2026-10-21.</p>
