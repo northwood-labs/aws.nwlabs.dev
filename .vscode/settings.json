@@ -2,6 +2,13 @@
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
+  "[go]": {
+    "editor.defaultFormatter": "golang.go",
+    "editor.formatOnSave": true
+  },
+  "[gohtml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
@@ -42,13 +49,32 @@
   "chat.tools.autoApprove": false,
   "editor.codeActionsOnSave": {
     "source.addMissingImports": "always",
-    "source.fixAll.eslint": "always",
+    "source.fixAll.oxc": "always",
     "source.organizeImports": "always"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
-  "emeraldwalk.runonsave": {},
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "cmd": "go tool golines --base-formatter=gofumpt --write-output --max-len=120 ${file}",
+        "match": "\\.go$"
+      },
+      {
+        "cmd": "go tool modernize -fix ${file}",
+        "match": "\\.go$"
+      },
+      {
+        "cmd": "go tool gofumpt -w ${file}",
+        "match": "\\.go$"
+      },
+      {
+        "cmd": "go tool fieldalignment -fix ${file}",
+        "match": "\\.go$"
+      }
+    ]
+  },
   "evenBetterToml.formatter.alignEntries": true,
   "evenBetterToml.formatter.indentString": "  ",
   "evenBetterToml.formatter.indentTables": true,
@@ -120,6 +146,34 @@
     }
   ],
   "gitlens.autolinks": [],
+  "go.alternateTools": {
+    "customFormatter": "golangci-lint"
+  },
+  "go.coverOnTestPackage": false,
+  "go.delveConfig": {
+    "debugAdapter": "dlv-dap"
+  },
+  "go.enableCodeLens": {
+    "runtest": true
+  },
+  "go.formatFlags": [
+    "fmt",
+    "--stdin"
+  ],
+  "go.formatTool": "custom",
+  "go.installDependenciesWhenBuilding": true,
+  "go.lintFlags": [
+    "--path-mode=abs",
+    "--fast-only"
+  ],
+  "go.lintTool": "golangci-lint",
+  "go.testExplorer.alwaysRunBenchmarks": true,
+  "go.toolsManagement.autoUpdate": true,
+  "go.useLanguageServer": true,
+  "go.vetOnSave": "workspace",
+  "gopls": {
+    "ui.semanticTokens": true
+  },
   "json.schemas": [
     {
       "fileMatch": [
@@ -145,6 +199,12 @@
         "prettier.config.js"
       ],
       "url": "https://www.schemastore.org/prettierrc"
+    },
+    {
+      "fileMatch": [
+        ".pinact.yaml"
+      ],
+      "url": "https://raw.githubusercontent.com/suzuki-shunsuke/pinact/refs/heads/main/json-schema/pinact.json"
     }
   ],
   "kiroAgent.agentAutonomy": "Autopilot",
@@ -158,6 +218,8 @@
     "aube *",
     "aubr *",
     "aubx *",
+    "bun *",
+    "bunx *",
     "cat *",
     "cd *",
     "curl *",
@@ -167,26 +229,28 @@
     "golangci-lint run *",
     "golines *",
     "grep *",
+    "hexdump *",
     "hk *",
-    "make *",
     "ls *",
-    "npm *",
-    "npx *",
+    "make *",
+    "mkdir *",
     "pnpm *",
     "pnpx *",
     "sed *",
     "tail *",
     "task *",
     "tee *",
+    "touch *",
     "wc *",
-    "wget *"
+    "wget *",
+    "which *"
   ],
   "kiroAgent.usageSummary": true,
   "makefile.configureOnOpen": false,
   "markdown-table-formatter.markdownGrammarScopes": [
-    "markdown",
     "gohtml",
-    "gotmpl"
+    "gotmpl",
+    "markdown"
   ],
   "markdown-table-formatter.removeColonsIfSameAsDefault": true,
   "markdown.extension.list.indentationSize": "inherit",
@@ -239,24 +303,24 @@
   "testExplorer.useNativeTesting": true,
   "todo-tree.general.tags": [
     "BUG",
-    "HACK",
     "FIXME",
+    "HACK",
     "TODO",
     "XXX",
     "[ ]",
     "[x]"
   ],
   "workbench.editorAssociations": {
-    "{git,gitlens,conflictResolution,vscode-local-history}:/**/*.tc.json": "default",
-    "{git,gitlens,conflictResolution,vscode-local-history}:/**/*.{asl.json,asl.yaml,asl.yml}": "default",
     "*.copilotmd": "vscode.markdown.preview.editor",
-    "*.ipynb": "jupyter-notebook",
-    "git-rebase-todo": "default",
-    "*.svg": "default",
-    "*.parquet": "duckdb.dataFileViewer",
     "*.csv": "duckdb.dataFileViewer",
+    "*.ipynb": "jupyter-notebook",
+    "*.parquet": "duckdb.dataFileViewer",
+    "*.svg": "default",
     "*.tsv": "duckdb.dataFileViewer",
-    "*.xlsx": "duckdb.dataFileViewer"
+    "*.xlsx": "duckdb.dataFileViewer",
+    "git-rebase-todo": "default",
+    "{git,gitlens,conflictResolution,vscode-local-history}:/**/*.tc.json": "default",
+    "{git,gitlens,conflictResolution,vscode-local-history}:/**/*.{asl.json,asl.yaml,asl.yml}": "default"
   },
   "yaml.schemas": {
     "https://goreleaser.com/static/schema-pro.json": ".goreleaser.yml"

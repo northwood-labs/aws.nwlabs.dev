@@ -17,7 +17,7 @@ This feature generates URL redirect HTML files for Terraform AWS provider resour
 
 ## Requirements
 
-### Requirement 1: read resource list from tfschema
+### Requirement 1: Read resource list from tfschema
 
 **User Story:** As a developer, I want the Generator to read the list of AWS provider resources from `tfschema`, so that redirect files can be generated for every known resource.
 
@@ -29,7 +29,7 @@ This feature generates URL redirect HTML files for Terraform AWS provider resour
 4. IF `tfschema resource list aws` does not complete within 30 seconds, THEN THE Generator SHALL terminate the command, report a timeout error to standard error, and exit with a non-zero status.
 5. IF `tfschema resource list aws` succeeds but produces no resource type names after parsing, THEN THE Generator SHALL report a warning to standard error and exit with a non-zero status.
 
-### Requirement 2: read data source list from tfschema
+### Requirement 2: Read data source list from tfschema
 
 **User Story:** As a developer, I want the Generator to read the list of AWS provider data sources from `tfschema`, so that redirect files can be generated for every known data source.
 
@@ -41,7 +41,7 @@ This feature generates URL redirect HTML files for Terraform AWS provider resour
 4. IF the `tfschema` executable is not found on the system PATH, THEN THE Generator SHALL print an error message to standard error indicating the missing executable and exit with a non-zero status.
 5. IF `tfschema data list aws` succeeds but produces no parseable data source type names, THEN THE Generator SHALL print a warning to standard error and continue execution with an empty data source list.
 
-### Requirement 3: strip AWS prefix from type names
+### Requirement 3: Strip AWS prefix from type names
 
 **User Story:** As a developer, I want the `aws_` prefix removed from type names, so that the generated URL paths are concise and readable.
 
@@ -52,7 +52,7 @@ This feature generates URL redirect HTML files for Terraform AWS provider resour
 3. IF a type name does not start with `aws_`, THEN THE Generator SHALL use the full type name as-is for the URL path.
 4. IF stripping the `aws_` prefix would produce an empty string, THEN THE Generator SHALL skip that entry and log a warning to standard error; IF the warning cannot be written to standard error, THEN THE Generator SHALL treat this as a system error and exit with a non-zero status.
 
-### Requirement 4: generate resource redirect files
+### Requirement 4: Generate resource redirect files
 
 **User Story:** As a developer, I want redirect files generated for each resource, so that visiting `/r/<resource>` redirects to the Terraform Registry resource documentation.
 
@@ -63,7 +63,7 @@ This feature generates URL redirect HTML files for Terraform AWS provider resour
 3. THE Redirect_File SHALL include a `<link rel="canonical" href="<target_url>">` element in the `<head>` section, where `<target_url>` is `https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/<Resource_Name>`.
 4. IF a Redirect_File cannot be written due to a filesystem error, THEN THE Generator SHALL report the error to standard error and exit with a non-zero status, even if some redirect files were successfully created prior to the failure.
 
-### Requirement 5: generate data source redirect files
+### Requirement 5: Generate data source redirect files
 
 **User Story:** As a developer, I want redirect files generated for each data source, so that visiting `/d/<data-source>` redirects to the Terraform Registry data source documentation.
 
@@ -74,7 +74,7 @@ This feature generates URL redirect HTML files for Terraform AWS provider resour
 3. THE Redirect_File SHALL include a `<link rel="canonical">` element with an `href` attribute set to `https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/<Data_Source_Name>`.
 4. IF writing a Redirect_File fails due to a filesystem error, THEN THE Generator SHALL report the error to standard error and exit with a non-zero status.
 
-### Requirement 6: redirect HTML structure
+### Requirement 6: Redirect HTML structure
 
 **User Story:** As a developer, I want the generated HTML to follow a consistent structure, so that redirects work across all browsers and are SEO-friendly.
 
@@ -86,7 +86,7 @@ This feature generates URL redirect HTML files for Terraform AWS provider resour
 4. THE Redirect_File SHALL include a `<body>` containing a hyperlink (`<a>` element) to the target URL with non-empty text content that includes the target URL, serving as a fallback for browsers that do not support meta refresh.
 5. THE Redirect_File SHALL include a `<title>` element within the `<head>` element containing non-empty text.
 
-### Requirement 7: clean output directories before generation
+### Requirement 7: Clean output directories before generation
 
 **User Story:** As a developer, I want the `docs/r/` and `docs/d/` directories cleaned before generating new files, so that stale redirects for removed resources do not persist.
 
@@ -109,7 +109,7 @@ This feature generates URL redirect HTML files for Terraform AWS provider resour
 3. WHEN execution completes successfully, THE Generator SHALL print a summary line to standard output containing the number of resource redirects generated and the number of data source redirects generated as separate numeric values.
 4. IF execution fails due to an error, THEN THE Generator SHALL exit with a non-zero status code.
 
-### Requirement 9: template-based HTML generation
+### Requirement 9: Template-based HTML generation
 
 **User Story:** As a developer, I want redirect files generated using Jinja2 templates, so that the HTML structure is maintainable and consistent.
 

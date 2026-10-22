@@ -130,6 +130,7 @@ host_request_interval = "500ms"
 exclude = [
   # @config-manager:start host-excludes
   '@github.com',
+  'bit.ly',
   'bitbucket.org/org/',
   'file://..',
   'github.com/org/',
@@ -145,5 +146,6 @@ exclude = [
   'pkg.go.dev/go.nwlabs.dev',
   'shellcheck.net',
   'taplo://',
+  'x-access-token',
   # @config-manager:end host-excludes
 ]

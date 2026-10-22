@@ -33,28 +33,33 @@ includes:
   admin:
     taskfile: ./tools/Taskfile.admin.yml
     flatten: true
-  gitconfig:
-    taskfile: ./tools/Taskfile.gitconfig.yml
-    flatten: true
-  internal:
-    taskfile: ./tools/Taskfile.internal.yml
-  x:
-    taskfile: ./Taskfile.x.yml
-    optional: true
-  # @config-manager:end standard
-
-  # @config-manager:start aws-user
   aws:
     taskfile: ./tools/Taskfile.aws.yml
     optional: true
-  # @config-manager:end aws-user
-
-  # @config-manager:start golang
+  frontend:
+    taskfile: ./tools/Taskfile.frontend.yml
+    flatten: true
+    optional: true
+  gitconfig:
+    taskfile: ./tools/Taskfile.gitconfig.yml
+    flatten: true
   go:
     taskfile: ./tools/Taskfile.golang.yml
     flatten: true
     optional: true
-    # @config-manager:end golang
+  hugo:
+    taskfile: ./tools/Taskfile.hugo.yml
+    flatten: true
+    optional: true
+  internal:
+    taskfile: ./tools/Taskfile.internal.yml
+  kiro:
+    taskfile: ./tools/Taskfile.kiro.yml
+  x:
+    # This is for project-specific tasks that are not synced.
+    taskfile: ./Taskfile.x.yml
+    optional: true
+    # @config-manager:end standard
 
 tasks:
   #-----------------------------------------------------------------------------

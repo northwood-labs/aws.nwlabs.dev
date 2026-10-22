@@ -51,50 +51,9 @@
 # @config-manager:end core-editor-top-level
 
 # @config-manager:start core-editor
-# ['alignment.chars']
-#   ['alignment.chars'.'*=']
-#     spaceAfter = 1.0
-#     spaceBefore = 1.0
-
-#   ['alignment.chars'.'+=']
-#     spaceAfter = 1.0
-#     spaceBefore = 1.0
-
-#   ['alignment.chars'.'-=']
-#     spaceAfter = 1.0
-#     spaceBefore = 1.0
-
-#   ['alignment.chars'.'/=']
-#     spaceAfter = 1.0
-#     spaceBefore = 1.0
-
-#   ['alignment.chars'.':']
-#     spaceAfter = 1.0
-#     spaceBefore = 0.0
-
-#   ['alignment.chars'.'::']
-#     spaceAfter = 0.0
-#     spaceBefore = 0.0
-
-#   ['alignment.chars'.'=']
-#     spaceAfter = 1.0
-#     spaceBefore = 1.0
-
-#   ['alignment.chars'.'==']
-#     spaceAfter = 1.0
-#     spaceBefore = 1.0
-
-#   ['alignment.chars'.'===']
-#     spaceAfter = 1.0
-#     spaceBefore = 1.0
-
-#   ['alignment.chars'.'=>']
-#     spaceAfter = 1.0
-#     spaceBefore = 1.0
-
 ['editor.codeActionsOnSave']
   'source.addMissingImports' = 'always'
-  'source.fixAll.eslint'     = 'always'
+  'source.fixAll.oxc'        = 'always'
   'source.organizeImports'   = 'always'
 
 ['evenBetterToml.schema.associations']
@@ -116,8 +75,8 @@
   '*.tofu'            = 'opentofu'
   '*.toml'            = 'toml'
   'Brewfile*'         = 'ruby'
+  'config'            = 'ini'
   'Dockerfile*'       = 'dockerfile'
-  config              = 'ini'
 
 [['githubIssues.queries']]
   label = 'My Issues'
@@ -156,6 +115,10 @@
   fileMatch = ['.prettierrc', 'prettier.config.js']
   url       = 'https://www.schemastore.org/prettierrc'
 
+[['json.schemas']]
+  fileMatch = ['.pinact.yaml']
+  url       = 'https://raw.githubusercontent.com/suzuki-shunsuke/pinact/refs/heads/main/json-schema/pinact.json'
+
 ['[markdown]']
   'editor.defaultFormatter' = 'fcrespo82.markdown-table-formatter'
 
@@ -163,11 +126,16 @@
   'editor.defaultFormatter' = 'foxundermoon.shell-format'
 
 ['workbench.editorAssociations']
-  '*.copilotmd'                                                         = 'vscode.markdown.preview.editor'
-  '*.ipynb'                                                             = 'jupyter-notebook'
-  '*.svg'                                                               = 'default'
-  git-rebase-todo                                                       = 'default'
-  '{git,gitlens,conflictResolution,vscode-local-history}:/**/*.tc.json' = 'default'
+  '{git,gitlens,conflictResolution,vscode-local-history}:/**/*.{asl.json,asl.yaml,asl.yml}' = 'default'
+  '{git,gitlens,conflictResolution,vscode-local-history}:/**/*.tc.json'                     = 'default'
+  '*.copilotmd'                                                                             = 'vscode.markdown.preview.editor'
+  '*.csv'                                                                                   = 'duckdb.dataFileViewer'
+  '*.ipynb'                                                                                 = 'jupyter-notebook'
+  '*.parquet'                                                                               = 'duckdb.dataFileViewer'
+  '*.svg'                                                                                   = 'default'
+  '*.tsv'                                                                                   = 'duckdb.dataFileViewer'
+  '*.xlsx'                                                                                  = 'duckdb.dataFileViewer'
+  'git-rebase-todo'                                                                         = 'default'
 
 ['[yaml]']
   'editor.defaultFormatter' = 'redhat.vscode-yaml'

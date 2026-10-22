@@ -10,9 +10,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 
 * [`acdb858`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/acdb8584c7331fcf6cee589cd6aed3eb5f9379cc): Modernize CSS formatting and add dark mode support. ([@skyzyx](https://github.com/skyzyx))
 
-### :dependabot: Building and Dependencies
+### :Dependabot: Building and dependencies
 
-* [`f40fa5d`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/f40fa5d842158878d11d8d1da718cf0eebf0135f): **deps**: Bump `cryptography` ([@dependabot](https://github.com/dependabot))
+* [`f40fa5d`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/f40fa5d842158878d11d8d1da718cf0eebf0135f): **deps**: Bump `cryptography` ([@Dependabot](https://github.com/dependabot))
 
 ### :test_tube: Testing
 
@@ -60,18 +60,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 * [`4b0d6fc`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/4b0d6fc5ce3b613287d7cdfcbdc9cec95f71d108): Add Twitter, OpenGraph, oEmbed cards. ([@skyzyx](https://github.com/skyzyx))
 * [`808ceef`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/808ceeffaf523f15239802e6464823f1b307dd5e): Add Twitter, OpenGraph, oEmbed cards. ([@skyzyx](https://github.com/skyzyx))
 
-### <!-- 1 -->:bug: Bug Fixes
+### <!-- 1 -->:bug: Bug fixes
 
 * [`8e24737`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/8e24737f2d3e3de9026bf017e291b2c42c9e7e08): Added an action to run daily. Ran the linter. ([@skyzyx](https://github.com/skyzyx))
 * [`e16ac06`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/e16ac06a0051e6c7dd6c559fe73dc33292c57958): Added a CHANGELOG stub. ([@skyzyx](https://github.com/skyzyx))
 * [`3267e34`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/3267e34be5f60e327f5f6ee82175931b33f4efaa): Restored the accidentally-overwritten LICENSE and `README.md` files to their original state. ([@skyzyx](https://github.com/skyzyx))
 
-### <!-- ZZZ -->:gear: Miscellaneous Tasks
+### <!-- ZZZ -->:gear: Miscellaneous tasks
 
 * [`9764501`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/9764501a7ee13026f1a5d00eeddaa2f6842507f4): Add PyPI access and update 404 page styling. ([@skyzyx](https://github.com/skyzyx))
 * [`35520a1`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/35520a1e076e1c660b45481f0a43cacfba9b8754): Added Terraform and tfschema to generate workflow. ([@skyzyx](https://github.com/skyzyx))
 * [`c5155d4`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/c5155d45440af1e93cea8ef38579af12a3f27f11): Refactor changelog and tooling configuration. ([@skyzyx](https://github.com/skyzyx))
-* [`f46a74c`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/f46a74c4370da9693ac82335d3015811d57cc78a): Upgraded terraform init and added multi-platform provider locking. ([@skyzyx](https://github.com/skyzyx))
+* [`f46a74c`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/f46a74c4370da9693ac82335d3015811d57cc78a): Upgraded Terraform init and added multi-platform provider locking. ([@skyzyx](https://github.com/skyzyx))
 * [`63425e6`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/63425e6b4350d810e5bcdda52774a66f76425e0d): Fixing Terraform issues. ([@skyzyx](https://github.com/skyzyx))
 * [`60920c2`](https://github.com/northwood-labs/aws.nwlabs.dev/commit/60920c29ab52d8707d37f804fd75f88559aee987): Pass additional variables to template. ([@skyzyx](https://github.com/skyzyx))
 

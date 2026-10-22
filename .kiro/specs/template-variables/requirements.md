@@ -16,7 +16,7 @@ This feature extends the redirect generator to render the index/listing template
 
 ## Requirements
 
-### Requirement 1: extract provider version
+### Requirement 1: Extract provider version
 
 **User Story:** As a site maintainer, I want the generator to extract the AWS provider version from `terraform --version` output, so that the listing pages display the current provider version.
 
@@ -29,7 +29,7 @@ This feature extends the redirect generator to render the index/listing template
 5. IF the `terraform --version` command exits with a non-zero status code, THEN THE Generator SHALL print an error message to stderr indicating the command failure and exit with a non-zero status code.
 6. IF the `terraform --version` command does not complete within 30 seconds, THEN THE Generator SHALL terminate the process, print an error message to stderr indicating the timeout, and exit with a non-zero status code.
 
-### Requirement 2: build resources variable
+### Requirement 2: Build resources variable
 
 **User Story:** As a site maintainer, I want the generator to build a `resources` template variable containing all AWS resources with their registry URLs, so that `r.html.j2` can render a complete listing.
 
@@ -41,7 +41,7 @@ This feature extends the redirect generator to render the index/listing template
 4. IF a resource name produces an empty string after stripping `aws_`, THEN THE Generator SHALL skip that entry and not include it in the resources list.
 5. IF a resource name does not start with the `aws_` prefix, THEN THE Generator SHALL include it in the resources list using the full name as the `stripped_name` portion of the `href` URL.
 
-### Requirement 3: build datasources variable
+### Requirement 3: Build datasources variable
 
 **User Story:** As a site maintainer, I want the generator to build a `datasources` template variable containing all AWS data sources with their registry URLs, so that `d.html.j2` can render a complete listing.
 
@@ -53,7 +53,7 @@ This feature extends the redirect generator to render the index/listing template
 4. IF a data source name produces an empty string after stripping `aws_`, THEN THE Generator SHALL skip that entry and not include it in the datasources list.
 5. IF a data source name does not start with the `aws_` prefix, THEN THE Generator SHALL include it in the datasources list using the full name as the `stripped_name` portion of the `href` URL.
 
-### Requirement 4: render resources index template
+### Requirement 4: Render resources index template
 
 **User Story:** As a site maintainer, I want the generator to render `r.html.j2` with the resources list and provider version, so that a complete resources listing page is generated.
 
@@ -65,7 +65,7 @@ This feature extends the redirect generator to render the index/listing template
 4. IF writing the output file fails due to a filesystem error, THEN THE Generator SHALL print an error message to stderr and exit with a non-zero status code.
 5. IF the resources list is empty, THEN THE Generator SHALL still render the template and write the output file with an empty listing.
 
-### Requirement 5: render datasources index template
+### Requirement 5: Render datasources index template
 
 **User Story:** As a site maintainer, I want the generator to render `d.html.j2` with the datasources list and provider version, so that a complete data sources listing page is generated.
 
@@ -77,7 +77,7 @@ This feature extends the redirect generator to render the index/listing template
 4. IF the `d.html.j2` template is found but fails to render due to a syntax or variable error, THEN THE Generator SHALL print an error message indicating the rendering failure to stderr and immediately halt execution with a non-zero status code.
 5. IF writing the output file fails due to a filesystem error, THEN THE Generator SHALL print an error message to stderr and immediately halt execution with a non-zero status code.
 
-### Requirement 6: version parsing Round-Trip
+### Requirement 6: Version parsing Round-Trip
 
 **User Story:** As a developer, I want confidence that the version parsing logic correctly extracts versions from valid `terraform --version` output, so that regressions are caught early.
 

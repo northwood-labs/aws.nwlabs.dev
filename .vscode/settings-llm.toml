@@ -13,7 +13,7 @@
 'kiroAgent.agentAutonomy' = 'Autopilot'
 'kiroAgent.enableCodebaseIndexing' = true
 'kiroAgent.enableTabAutocomplete' = true
-'kiroAgent.modelSelection' = "auto"
+'kiroAgent.modelSelection' = 'auto'
 'kiroAgent.usageSummary' = true
 'kiroAgent.notifications.agent.actionRequired' = true
 'kiroAgent.notifications.agent.failure' = true
@@ -23,6 +23,8 @@
   'aube *',
   'aubr *',
   'aubx *',
+  'bun *',
+  'bunx *',
   'cat *',
   'cd *',
   'curl *',
@@ -32,19 +34,21 @@
   'golangci-lint run *',
   'golines *',
   'grep *',
+  'hexdump *',
   'hk *',
   'ls *',
   'make *',
-  'npm *',
-  'npx *',
+  'mkdir *',
   'pnpm *',
   'pnpx *',
   'sed *',
   'tail *',
   'task *',
   'tee *',
+  'touch *',
   'wc *',
   'wget *',
+  'which *',
   #
 ]
 'remote.defaultExtensionsIfInstalledLocally' = [

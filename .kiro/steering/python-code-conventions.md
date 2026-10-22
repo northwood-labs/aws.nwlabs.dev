@@ -6,25 +6,25 @@ fileMatchPattern: "**/*.py"
 <!-- @config-manager:start zdp -->
 # Python Zero Diagnostics
 
-This project uses [Zuban](https://zubanls.com) as its Python type checker. Zuban is a fast type checker and LSP server written in Rust. Always use Zuban — not mypy or pyright — unless Zuban is unavailable.
+This project uses [Pyrefly](https://pyrefly.org) as its Python type checker. Pyrefly is a fast type checker and LSP server written in Rust, developed by Meta. Always use Pyrefly — not mypy or pyright — unless Pyrefly is unavailable.
 
-This project targets zero Zuban diagnostics across all Python source files. Run the check with:
+This project targets zero Pyrefly diagnostics across all Python source files. Run the check with:
 
 ```bash
-zuban check {file1} {file2} {file3}
+pyrefly check {file1} {file2} {file3}
 ```
 
 ## Philosophy
 
 * **Small, surgical edits** are strongly preferred over wide-scale refactoring. Without a larger spec to guide the work, keep changes minimal and focused on the specific diagnostic being resolved.
 * **Fix the problem, not the symptom.** Strongly favor resolving the root cause over suppressing the error. Suppression is a last resort reserved for cases where a fix is genuinely impossible or would introduce worse problems.
-* The goal is **zero remaining diagnostic issues** when running `zuban check {file1} {file2} {file3}` from the project root.
+* The goal is **zero remaining diagnostic issues** when running `pyrefly check {file1} {file2} {file3}` from the project root.
 
 ## Verification workflow
 
 1. After editing any `.py` file, run `getDiagnostics` on that file.
 2. If diagnostics are reported, fix every one before moving on.
-3. After all fixes, run `zuban check {file1} {file2} {file3}` from the project root to auto-fix what the linter can and surface anything remaining.
+3. After all fixes, run `pyrefly check {file1} {file2} {file3}` from the project root to surface anything remaining.
 4. Run `uv run pytest` for the affected package to confirm no regressions.
 
 Do not present work as finished while diagnostics remain.
@@ -51,7 +51,7 @@ uv run ruff check
 
 ### Reassigning a parameter does not narrow its union type
 
-Zuban (and mypy) do not narrow a parameter's declared type when you reassign it inside the function body. This pattern produces `union-attr` errors on every attribute access after the reassignment:
+Pyrefly (and mypy) do not narrow a parameter's declared type when you reassign it inside the function body. This pattern produces errors on every attribute access after the reassignment:
 
 ```python
 # Bad — type checker still sees issue as MyModel | dict after the reassignment
@@ -73,7 +73,7 @@ def f(issue: MyModel | dict) -> dict:
     return {"id": typed_value.key}
 ```
 
-### `list` is invariant — use `Sequence` for covariant read-only parameters
+### `list` is invariant — Use `Sequence` for covariant read-only parameters
 
 `list[SonarIssue]` is not assignable to `list[SonarIssue | dict]` because `list` is invariant. When a function only reads from the sequence, declare the parameter as `Sequence[T]` (from `collections.abc`), which is covariant:
 
@@ -83,7 +83,7 @@ from collections.abc import Sequence
 def process(items: Sequence[MyModel | dict]) -> dict: ...
 ```
 
-### `dataclasses.asdict` preserves `None` fields — strip them explicitly
+### `dataclasses.asdict` preserves `None` fields — Strip them explicitly
 
 `dataclasses.asdict()` includes fields whose value is `None`. When serialising to JSON for an API that omits optional keys, strip `None` values with a recursive helper. Only strip `None`-valued dict keys — do not collapse empty lists or empty dicts, as those may be required fields (e.g. `items: []`):
 
@@ -108,20 +108,20 @@ def _to_dict(obj: object) -> dict:
 
 When a script is run directly (e.g. `uv run {file}`), the package root may not be on `sys.path`, so `from {package} import ...` raises `ModuleNotFoundError`. Add a fallback to the bare module name.
 
-Zuban is stricter than mypy about this pattern: it resolves the `try` branch successfully, then type-checks the `except` branch anyway and raises `no-redef` on every re-imported name. Also inject the script's own directory into `sys.path` in the `except` block so the bare module name resolves at runtime:
+Pyrefly can flag this pattern: it resolves the `try` branch successfully, then type-checks the `except` branch anyway and reports a redefinition on every re-imported name. Also inject the script's own directory into `sys.path` in the `except` block so the bare module name resolves at runtime:
 
 ```python
 try:
     from {package}.models import MyClass, OtherClass
 except ModuleNotFoundError:
     sys.path.insert(0, str(Path(__file__).parent))
-    from models import (  # type: ignore[import-not-found, no-redef]
-        MyClass,      # type: ignore[no-redef]
-        OtherClass,   # type: ignore[no-redef]
+    from models import (  # pyrefly: ignore[missing-import]
+        MyClass,      # pyrefly: ignore[redefinition]
+        OtherClass,   # pyrefly: ignore[redefinition]
     )
 ```
 
-The `sys.path.insert` ensures the bare `from models import ...` resolves at runtime when the package root is not on `sys.path`. The `# type: ignore[import-not-found, no-redef]` on the `from models import` line suppresses the unresolvable module error. Each imported name also needs `# type: ignore[no-redef]` because Zuban sees them as redefinitions of the names already bound in the `try` branch.
+The `sys.path.insert` ensures the bare `from models import ...` resolves at runtime when the package root is not on `sys.path`. Pyrefly uses `# pyrefly: ignore[<error-kind>]` comments to suppress diagnostics by kind. The `# pyrefly: ignore[missing-import]` on the `from models import` line suppresses the unresolvable-module error. Each imported name also needs `# pyrefly: ignore[redefinition]` because Pyrefly sees them as redefinitions of the names already bound in the `try` branch.
 
 ## Tooling
 
@@ -134,7 +134,7 @@ uv run ruff check --fix
 
 ## Suppression
 
-When a diagnostic cannot be resolved cleanly, use the project's lint suppression comments. Always include a justification. Suppression is a last resort — STRONGLY prefer fixing the root cause.
+When a diagnostic cannot be resolved cleanly, suppress it with a Pyrefly ignore comment. Prefer targeting the specific error kind — `# pyrefly: ignore[<error-kind>]` — over a bare `# pyrefly: ignore`, and always include a justification. Suppression is a last resort — STRONGLY prefer fixing the root cause.
 
 **Critical rules:**
 
@@ -143,7 +143,7 @@ When a diagnostic cannot be resolved cleanly, use the project's lint suppression
 
 ## Style conventions
 
-### Docstrings — opening and closing triple quotes on their own lines
+### Docstrings — Opening and closing triple quotes on their own lines
 
 Both the opening `"""` and the closing `"""` must appear on their own lines:
 
@@ -228,7 +228,7 @@ def f(items: list[str]) -> list[str]:
     return result
 ```
 
-### Type annotations — always specific, avoid `Any`
+### Type annotations — Always specific, avoid `Any`
 
 Add PEP-484 type annotations to every function parameter, return value, and variable where the type can be determined. Prefer specific types over broad ones. Avoid `Any` wherever possible; when it is genuinely necessary, import it explicitly:
 
